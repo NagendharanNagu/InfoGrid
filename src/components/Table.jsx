@@ -5,7 +5,7 @@ const Table = ({user}) => {
     <table>
       <thead>
       <tr>
-        <th>S.No</th>
+        {/* <th>S.No</th> */}
         <th>First Name</th>
         <th>Last Name</th>
         <th>Age</th>
@@ -21,13 +21,14 @@ const Table = ({user}) => {
         <th>Department</th>
         <th>Title</th>
         <th>Company Name</th>
+        <th>Action</th>
       </tr>
     </thead>
       <tbody>
         { user ? 
           user.map((u)=>(
             <tr key={u.id}>
-              <td>{u.id}</td>
+              {/* <td>{u.id}</td> */}
               <td>{u.firstName}</td>
               <td>{u.lastName}</td>
               <td>{u.age}</td>
@@ -43,6 +44,8 @@ const Table = ({user}) => {
               <td>{u.company.department}</td>
               <td>{u.company.title}</td>
               <td>{u.company.name}</td>
+              <td><button>Edit</button></td>
+              <td><button>Delete</button></td>
             </tr>
           )) : null
         }

@@ -13,3 +13,23 @@ export const getUsers = async ()=>{
         return null;
     }
 }
+
+export const addUsers = async () =>{
+    try{
+        // Logic to Add user
+    }
+    catch(error){
+        console.log("Error adding the user:",error);
+        return null;
+    }
+}
+
+export const deleteUsers = async () =>{
+    try{
+        // Logic to Delete users
+    }
+    catch(error){
+        console.log("Error deleting the user:",error);
+        return null;
+    }
+}
