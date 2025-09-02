@@ -5,6 +5,24 @@ import Form from '../components/Form'
 
 const UsersPage = () => {
   const [user, setUser] = useState([])
+  const[showForm, setShowForm]=useState(false)
+  const[inputValue, setInputValue] = useState({
+        FirstName: "",
+        LastName: "",
+        Age: "",
+        DOB: "",
+        Gender: "",
+        Phone: "",
+        Email: "",
+        Address: "",
+        City: "",
+        State: "",
+        Zipcode: "",
+        Country: "",
+        Department: "",
+        Title: "",
+        CompanyName: ""
+    })
 
   useEffect(()=>{
     getUsers().then(setUser)
@@ -15,7 +33,7 @@ const UsersPage = () => {
   return (
     <div>
       <h1>User Directory</h1>
-      <Form/>
+      <Form showForm = {showForm} setShowForm={setShowForm} inputValue={inputValue} setInputValue={setInputValue}/>
       <Table user={user}/>
     </div>
   )
