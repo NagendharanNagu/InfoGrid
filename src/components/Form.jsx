@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import "../style/form.css";
 
 const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
-
-
-
   
   const onChangeHandler = (e) => {
     let { name, value } = e.target;
@@ -23,7 +20,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
     e.preventDefault();
   };
 
-  console.log(inputValue);
+  // console.log(inputValue);
 
   return (
     <div>
@@ -38,7 +35,8 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
               </button>
             </div>
             <form onSubmit={onSubmitHandler} className="modal-form">
-              <label htmlFor="f-name">First Name</label>
+              <div>
+                <label htmlFor="f-name">First Name <span>*</span></label>
               <input
                 type="text"
                 id="f-name"
@@ -47,7 +45,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.FirstName}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="l-name">Last Name</label>
+              </div>
+              <div>
+              <label htmlFor="l-name">Last Name <span>*</span></label>
               <input
                 type="text"
                 id="l-name"
@@ -56,7 +56,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.LastName}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="age">Age</label>
+              </div>
+              <div>
+                <label htmlFor="age">Age <span>*</span></label>
               <input
                 type="number"
                 id="age"
@@ -65,7 +67,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Age}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="dob">Date of Birth</label>
+              </div>
+              <div>
+              <label htmlFor="dob">Date of Birth <span>*</span></label>
               <input
                 type="date"
                 id="dob"
@@ -73,9 +77,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.DOB}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="gender">Gender</label>
-              <div className="gender-group">
-                <label>
+              </div>
+              <div>
+              <label htmlFor="gender">Gender <span>*</span></label><br />
                   <input
                     type="radio"
                     name="Gender"
@@ -84,8 +88,6 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                     onChange={onChangeHandler}
                   />{" "}
                   Male
-                </label>
-                <label>
                   <input
                     type="radio"
                     name="Gender"
@@ -94,9 +96,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                     onChange={onChangeHandler}
                   />{" "}
                   Female
-                </label>
-              </div>
-              <label htmlFor="phone">Phone</label>
+                </div>
+              <div>
+                <label htmlFor="phone">Phone <span>*</span></label>
               <input
                 type="tel"
                 id="phone"
@@ -105,7 +107,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Phone}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="email">Email</label>
+              </div>
+              <div>
+                <label htmlFor="email">Email <span>*</span></label>
               <input
                 type="email"
                 id="email"
@@ -114,7 +118,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Email}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="Address">Address</label>
+              </div>
+              <div>
+                <label htmlFor="Address">Address</label>
               <input
                 type="text"
                 id="Address"
@@ -123,7 +129,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Address}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="city">City</label>
+              </div>
+              <div>
+                <label htmlFor="city">City</label>
               <input
                 type="text"
                 id="city"
@@ -132,7 +140,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.City}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="state">State</label>
+              </div>
+              <div>
+                <label htmlFor="state">State</label>
               <input
                 type="text"
                 id="state"
@@ -141,7 +151,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.State}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="zip">Zipcode</label>
+              </div>
+              <div>
+                <label htmlFor="zip">Zipcode</label>
               <input
                 type="number"
                 id="zip"
@@ -150,7 +162,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Zipcode}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="country">Country</label>
+              </div>
+              <div>
+                <label htmlFor="country">Country</label>
               <input
                 type="text"
                 id="country"
@@ -159,7 +173,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Country}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="dept">Department</label>
+              </div>
+              <div>
+                <label htmlFor="dept">Department</label>
               <input
                 type="text"
                 id="dept"
@@ -168,7 +184,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Department}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="title">Title</label>
+              </div>
+              <div>
+                <label htmlFor="title">Title</label>
               <input
                 type="text"
                 id="title"
@@ -177,7 +195,9 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.Title}
                 onChange={onChangeHandler}
               />
-              <label htmlFor="company-name">Company Name</label>
+              </div>
+              <div>
+                <label htmlFor="company-name">Company Name</label>
               <input
                 type="text"
                 id="company-name"
@@ -186,6 +206,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
                 value={inputValue.CompanyName}
                 onChange={onChangeHandler}
               />
+              </div>
               <div className="modal-actions">
                 <button onClick={addcancelButtonHandler} className="add-btn">
                   Add

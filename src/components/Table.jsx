@@ -1,6 +1,8 @@
 import React from 'react'
 
 const Table = ({user}) => {
+  console.log(user);
+  
   return (
     <table>
       <thead>
