@@ -1,4 +1,6 @@
 import React from 'react'
+import moment from "moment"
+
 
 const Table = ({user}) => {
   console.log(user);
@@ -28,24 +30,24 @@ const Table = ({user}) => {
     </thead>
       <tbody>
         { user ? 
-          user.map((u)=>(
-            <tr key={u.id}>
+          user?.map((u)=>(
+            <tr key={u._id}>
               {/* <td>{u.id}</td> */}
-              <td>{u.firstName}</td>
-              <td>{u.lastName}</td>
-              <td>{u.age}</td>
-              <td>{u.birthDate}</td>
-              <td>{u.gender}</td>
-              <td>{u.phone}</td>
-              <td>{u.email}</td>
-              <td>{u.address.address}</td>
-              <td>{u.address.city}</td>
-              <td>{u.address.state}</td>
-              <td>{u.address.postalCode}</td>
-              <td>{u.address.country}</td>
-              <td>{u.company.department}</td>
-              <td>{u.company.title}</td>
-              <td>{u.company.name}</td>
+              <td>{u.FirstName}</td>
+              <td>{u.LastName}</td>
+              <td>{u.Age}</td>
+              <td>{moment(u.DOB)?.format("DD-MM-YYYY")}</td>
+              <td>{u.Gender}</td>
+              <td>{u.Phone}</td>
+              <td>{u.Email}</td>
+              <td>{u.Address}</td>
+              <td>{u.City}</td>
+              <td>{u.State}</td>
+              <td>{u.Zipcode}</td>
+              <td>{u.Country}</td>
+              <td>{u.Department}</td>
+              <td>{u.Title}</td>
+              <td>{u.CompanyName}</td>
               <td><button>Edit</button></td>
               <td><button>Delete</button></td>
             </tr>

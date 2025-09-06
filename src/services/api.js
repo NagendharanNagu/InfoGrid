@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://dummyjson.com/users"
+const API_BASE_URL = import.meta.env.VITE_API_URL
 
 export const getUsers = async ()=>{
     try{
-        const response = await axios.get(API_BASE_URL)
-        // console.log(response.data.users);
-        return response.data.users;
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/UserDB/Getuser`)
+        console.log(response);
+        return response.data.data;
     }
     catch(error){
         console.log("Error fetching the user:",error);
@@ -14,22 +14,5 @@ export const getUsers = async ()=>{
     }
 }
 
-export const addUsers = async () =>{
-    try{
-        // Logic to Add user
-    }
-    catch(error){
-        console.log("Error adding the user:",error);
-        return null;
-    }
-}
+// getUsers()
 
-export const deleteUsers = async () =>{
-    try{
-        // Logic to Delete users
-    }
-    catch(error){
-        console.log("Error deleting the user:",error);
-        return null;
-    }
-}

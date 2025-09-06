@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../style/form.css";
+import axios from "axios";
 
 const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
   
@@ -8,6 +9,32 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
+  const addUserHandler = () =>{
+    const sendDataToDB = axios.post(`${import.meta.env.VITE_API_URL}/UserDB/Addusers`, inputValue)
+      .then(res => console.log("Inserted Users: ", res.data))
+      .catch(err => console.log("Insert Error: ",err)
+      )
+      setInputValue({
+        FirstName: "",
+        LastName: "",
+        Age: "",
+        DOB: "",
+        Gender: "",
+        Phone: "",
+        Email: "",
+        Address: "",
+        City: "",
+        State: "",
+        Zipcode: "",
+        Country: "",
+        Department: "",
+        Title: "",
+        CompanyName: ""
+    })
+    addcancelButtonHandler()
+  }
+  console.log(import.meta.env.VITE_API_URL);
+  
   const addcancelButtonHandler = () => {
     setShowForm(false);
   };
@@ -20,7 +47,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
     e.preventDefault();
   };
 
-  // console.log(inputValue);
+  console.log(inputValue);
 
   return (
     <div>
@@ -208,7 +235,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
               />
               </div>
               <div className="modal-actions">
-                <button onClick={addcancelButtonHandler} className="add-btn">
+                <button onClick={addUserHandler} className="add-btn">
                   Add
                 </button>
                 <button onClick={addcancelButtonHandler} className="cancel-btn">
