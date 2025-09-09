@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import "../style/form.css";
 import axios from "axios";
+import { addUser } from "../services/api";
 
-const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
+const Form = ({ showForm, setShowForm, inputValue, setInputValue, getUserData }) => {
   
   const onChangeHandler = (e) => {
     let { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const addUserHandler = () =>{
-    const sendDataToDB = axios.post(`${import.meta.env.VITE_API_URL}/UserDB/Addusers`, inputValue)
-      .then(res => console.log("Inserted Users: ", res.data))
-      .catch(err => console.log("Insert Error: ",err)
-      )
+  const addUserHandler = async () =>{
+      await addUser(inputValue)
       setInputValue({
         FirstName: "",
         LastName: "",
@@ -32,6 +30,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue }) => {
         CompanyName: ""
     })
     addcancelButtonHandler()
+    getUserData()
   }
   console.log(import.meta.env.VITE_API_URL);
   

@@ -2,7 +2,7 @@ import React from 'react'
 import moment from "moment"
 
 
-const Table = ({user}) => {
+const Table = ({user,handleDelete,deletePrompt}) => {
   console.log(user);
   
   return (
@@ -49,7 +49,7 @@ const Table = ({user}) => {
               <td>{u.Title}</td>
               <td>{u.CompanyName}</td>
               <td><button>Edit</button></td>
-              <td><button>Delete</button></td>
+              <td><button onClick={()=>deletePrompt(u._id)}>Delete</button></td>
             </tr>
           )) : null
         }
