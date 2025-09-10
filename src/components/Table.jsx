@@ -2,8 +2,8 @@ import React from 'react'
 import moment from "moment"
 
 
-const Table = ({user,handleDelete,deletePrompt}) => {
-  console.log(user);
+const Table = ({user,deletePrompt, editUserHandler}) => {
+  // console.log(user);
   
   return (
     <table>
@@ -32,7 +32,6 @@ const Table = ({user,handleDelete,deletePrompt}) => {
         { user ? 
           user?.map((u)=>(
             <tr key={u._id}>
-              {/* <td>{u.id}</td> */}
               <td>{u.FirstName}</td>
               <td>{u.LastName}</td>
               <td>{u.Age}</td>
@@ -48,7 +47,7 @@ const Table = ({user,handleDelete,deletePrompt}) => {
               <td>{u.Department}</td>
               <td>{u.Title}</td>
               <td>{u.CompanyName}</td>
-              <td><button>Edit</button></td>
+              <td><button onClick={()=>editUserHandler(u)}>Edit</button></td>
               <td><button onClick={()=>deletePrompt(u._id)}>Delete</button></td>
             </tr>
           )) : null

@@ -3,7 +3,7 @@ import "../style/form.css";
 import axios from "axios";
 import { addUser } from "../services/api";
 
-const Form = ({ showForm, setShowForm, inputValue, setInputValue, getUserData }) => {
+const Form = ({ showForm, setShowForm, inputValue, setInputValue, getUserData, showFromHandler, selectedUser, setSelectedUser }) => {
   
   const onChangeHandler = (e) => {
     let { name, value } = e.target;
@@ -38,9 +38,7 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue, getUserData })
     setShowForm(false);
   };
 
-  const showFromHandler = () => {
-    setShowForm(true);
-  };
+  
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -50,7 +48,10 @@ const Form = ({ showForm, setShowForm, inputValue, setInputValue, getUserData })
 
   return (
     <div>
-      <button onClick={showFromHandler} className="add-btn">Add New User</button>
+      {selectedUser? 
+      <button onClick={showFromHandler} className="add-btn">Update User</button> :
+      <button onClick={showFromHandler} className="add-btn">Add New User</button> 
+      }
       {showForm && (
         <div className="modal-overlay">
           <div className="modal-card">
